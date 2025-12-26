@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tin tức</title>
+    <meta name="description" content="Tin tức" />
+    <meta name="keywords" content="Tin tức" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name='revisit-after' content='1 days' />
+
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    <meta property="og:image:alt" content="HP" />
+    <meta property="og:title" content="Tin tức" />
+    <meta property="og:description" content="Tin tức" />
+    <meta property="og:site_name" content="HP" />
+    
+   
+    <meta property="og:type" content="article" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Bootstrap -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=vietnamese"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="html/basecss/base.css">
+    <link rel="stylesheet" href="html/basecss/style.css">
+    <link rel="stylesheet" href="html/basecss/reponsive.css">
+    <link href="Pub/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" />
+    <link href="html/basecss/loading.css" rel="stylesheet" />
+    <script src="html/js/base.js"></script>
+    <script src="Pub/jquery-confirm/jquery-confirm.min.js"></script>
+    <script src="Pub/js/jquery.validate.min.js"></script>
+    <script src="Pub/js/language.js"></script>
+
+    
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146127895-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-146127895-1');
+</script>
+</head>
+<body>
+    <div class="btn-sending" id="loading">
+        <div class="lds-css ng-scope">
+            <div style="width: 100%; height: 100%" class="lds-ellipsis">
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <span style="color: #ffffff; font-size: 16px;">Đang gửi...</span>
+    </div>
+
+    
+    
+<header>
+        <div class="container">
+            <div class="logo">
+                <a href="/" title="C&#212;NG TY CỔ PHẦN GEMACHEM VIỆT NAM">
+                    <img src="html/img/icon/Gemachem Corp 200x200.png" alt="C&#212;NG TY CỔ PHẦN GEMACHEM VIỆT NAM">
+                </a>
+            </div>
+            <div id="sticker">
+                <div class="stick-container">
+                    <div class="overlayer"></div>
+                    <div class="wrapper">
+                        <div class="head-wrapper">
+                            <p>Menu</p>
+                            <div id="close-menu">
+                                <span></span>
+                            </div>
+                            <div class="mb-search">
+                                <form action="/search">
+                                    <input type="text" name="keyword" placeholder="T&#236;m kiếm ...">
+                                    <button><span></span></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="body-wrapper">
+                            <ul>
+                                <li>
+                                    <a href="/" title="Trang chủ">Trang chủ</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Giới thiệu">Giới thiệu</a>
+                                    <ul>
+                                        <li><a href="#">Giới thiệu chung</a></li>
+                                        <li><a href="#">Lịch sử h&#236;nh th&#224;nh</a></li>
+                                        <li><a href="#">Cơ sở vật chất</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" title="Sản phẩm">Sản phẩm</a>
+                                    <ul>
+                                        <li><a href="/hoa-chat">H&#243;a chất</a></li>
+                                        <li><a href="/phan-bon">Ph&#226;n b&#243;n</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" title="Dịch vụ">Dịch vụ</a>
+                                    <ul>
+                                        <li><a href="/van-tai-noi-dia">Vận tải nội địa</a></li>
+                                        <li><a href="/uy-thac-xuat-nhap-khau">Uỷ th&#225;c xuất nhập khẩu</a></li>
+                                        <li><a href="/tu-van-xuat-khau-lao-dong">Tư vấn xuất khẩu lao động</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#c" title="Tin tức">Tin tức</a>
+                                    <ul>
+                                        <li><a href="/tin-cong-ty">Tin c&#244;ng ty</a></li>
+                                        <li><a href="/tin-chuyen-nganh">Tin chuy&#234;n ng&#224;nh</a></li>
+                                        <li><a href="/tin-tuc-khac">Tin tức kh&#225;c</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" title="Tuyển dụng">Tuyển dụng</a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Li&#234;n hệ">Li&#234;n hệ</a>
+                                </li>
+                                <li class="mb-hidden">
+                                    <a href="javascript:void(0)" title="T&#236;m kiếm" id="btn-search"></a>
+                                    <div class="box-search">
+                                        <form action="/search">
+                                            <input type="text" name="keyword" placeholder="T&#236;m kiếm ...">
+                                            <button><span></span></button>
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="language">
+                <ul>
+                    <li>
+                        <a href="javascript:;" class="langvi">
+                            <img src="html/img/icon/vn.jpg" alt="Tiếng Việt">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="langen">
+                            <img src="html/img/icon/en.jpg" alt="English">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <script>
+                if ($(window).width() < 992) {
+                    $('.body-wrapper>ul>li').has('ul').addClass('list-mb');
+                }
+            </script>
+            <div id="open-menu">
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    
+        <div id="banner">
+            <img src="html/img/icon/banner2gt.jpg" alt="Tin tức">
+        </div>
+    <div id="news">
+        <div class="container">
+            <div id="map-link-bar">
+                <ul>
+                    <li><a href="/">Trang chủ</a></li>
+                    
+                    <li>Tin tức</li>
+                </ul>
+            </div>
+            <div class="content_">
+                <h1 class="h1-2b">Tin tức</h1>
+                <ul class="list-news_">
+                        <li>
+                            <a href="/che-pham-hoa-hoc-la-gi-va-nhung-dieu-can-luu-y-khi-su-dung" class="avt"><img src="html/img/icon/nw4.jpg" alt="Chế phẩm h&#243;a học l&#224; g&#236;? V&#224; những điều cần lưu &#253; khi sử dụng"></a>
+                            <div class="desc">
+                                <h3>
+                                    <a href="/che-pham-hoa-hoc-la-gi-va-nhung-dieu-can-luu-y-khi-su-dung">Chế phẩm h&#243;a học l&#224; g&#236;? V&#224; những điều cần lưu &#253; khi sử dụng</a>
+                                </h3>
+                                    <span class="date">06/06/2019</span>
+
+                                <p>NaOH hay c&#242;n được gọi dưới c&#225;i t&#234;n Sodium hydroxide, t&#234;n gọi trong h&#243;a học l&#224; Natri Hydroxit. C&#225;c dạng cấu tr&#250;c: x&#250;t vảy, x&#250;t hạt, x&#250;t lỏng….</p>
+                                <a href="/che-pham-hoa-hoc-la-gi-va-nhung-dieu-can-luu-y-khi-su-dung" class="btn-a4">Chi tiết</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/hoa-hoc-dang-sau-phao-hoa-cam-tay" class="avt"><img src="html/img/icon/nw4.jpg" alt="H&#243;a học đằng sau ph&#225;o hoa cầm tay"></a>
+                            <div class="desc">
+                                <h3>
+                                    <a href="/hoa-hoc-dang-sau-phao-hoa-cam-tay">H&#243;a học đằng sau ph&#225;o hoa cầm tay</a>
+                                </h3>
+                                    <span class="date">05/06/2019</span>
+
+                                <p>Ch&#250;ng ta thường chỉ xem ph&#225;o hoa v&#224;o những dịp đ&#243;n năm mới hay những buổi tiệc xa hoa. Nguy&#234;n nh&#226;n l&#224; n&#243; kh&#225; l&#224; đắt đỏ v&#224; bạn kh&#244;ng thể n&#224;o mua được.</p>
+                                <a href="/hoa-hoc-dang-sau-phao-hoa-cam-tay" class="btn-a4">Chi tiết</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/ung-dung-cua-xut-trong-cong-nghiep-xut-chuan-hang-tot" class="avt"><img src="html/img/icon/nw4.jpg" alt="Ứng dụng của x&#250;t trong c&#244;ng nghiệp - x&#250;t chuẩn h&#224;ng tốt"></a>
+                            <div class="desc">
+                                <h3>
+                                    <a href="/ung-dung-cua-xut-trong-cong-nghiep-xut-chuan-hang-tot">Ứng dụng của x&#250;t trong c&#244;ng nghiệp - x&#250;t chuẩn h&#224;ng tốt</a>
+                                </h3>
+                                    <span class="date">05/06/2019</span>
+
+                                <p>NaOH hay c&#242;n được gọi dưới c&#225;i t&#234;n Sodium hydroxide, t&#234;n gọi trong h&#243;a học l&#224; Natri Hydroxit. C&#225;c dạng cấu tr&#250;c: x&#250;t vảy, x&#250;t hạt, x&#250;t lỏng….</p>
+                                <a href="/ung-dung-cua-xut-trong-cong-nghiep-xut-chuan-hang-tot" class="btn-a4">Chi tiết</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/cung-cap-hoa-chat-sodium-hydroxide-99-xut-vay-trung-quoc" class="avt"><img src="html/img/icon/nw4.jpg" alt="Cung Cấp H&#243;a chất Sodium hydroxide 99% – X&#250;t Vảy Trung Quốc"></a>
+                            <div class="desc">
+                                <h3>
+                                    <a href="/cung-cap-hoa-chat-sodium-hydroxide-99-xut-vay-trung-quoc">Cung Cấp H&#243;a chất Sodium hydroxide 99% – X&#250;t Vảy Trung Quốc</a>
+                                </h3>
+                                    <span class="date">05/06/2019</span>
+
+                                <p>Sodium hydroxide 99% – X&#250;t Vảy Trung Quốc c&#243; đặc t&#237;nh tồn tại dạng hạt hoặc bột m&#224;u trắng, Naoh hạt rất dễ hấp thụ CO2 trong kh&#244;ng kh&#237; để biến đổi th&#224;nh Na2CO3.</p>
+                                <a href="/cung-cap-hoa-chat-sodium-hydroxide-99-xut-vay-trung-quoc" class="btn-a4">Chi tiết</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/nhung-loi-ich-va-moi-nguy-hiem-khi-su-dung-hoa-chat-xut-naoh" class="avt"><img src="html/img/icon/nw4.jpg" alt="Những lợi &#237;ch v&#224; mối nguy hiểm khi sử dụng h&#243;a chất X&#218;T (NaOH)"></a>
+                            <div class="desc">
+                                <h3>
+                                    <a href="/nhung-loi-ich-va-moi-nguy-hiem-khi-su-dung-hoa-chat-xut-naoh">Những lợi &#237;ch v&#224; mối nguy hiểm khi sử dụng h&#243;a chất X&#218;T (NaOH)</a>
+                                </h3>
+                                    <span class="date">05/06/2019</span>
+
+                                <p>H&#243;a chất Natri hydroxit hay trong c&#244;ng nghiệp thường gọi l&#224; x&#250;t hay x&#250;t ăn da, khi đem dung m&#244;i n&#224;y h&#242;a tan trong nước ch&#250;ng sẽ tạo th&#224;nh dung dịch kiềm mạnh.</p>
+                                <a href="/nhung-loi-ich-va-moi-nguy-hiem-khi-su-dung-hoa-chat-xut-naoh" class="btn-a4">Chi tiết</a>
+                            </div>
+                        </li>
+                </ul>
+                <div class="pagination">
+                    <ul>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+<div class="side-bar_">
+            <div class="box">
+                <h2 class="h2-sb">Tin tức</h2>
+                    <ul class="list-module">
+                            <li >
+                                <h3 class="h3-md">
+                                    <a href="/tin-cong-ty ">
+                                        Tin c&#244;ng ty
+                                    </a>
+                                </h3>
+                            </li>
+                            <li >
+                                <h3 class="h3-md">
+                                    <a href="/tin-chuyen-nganh ">
+                                        Tin chuy&#234;n ng&#224;nh
+                                    </a>
+                                </h3>
+                            </li>
+                            <li >
+                                <h3 class="h3-md">
+                                    <a href="/tin-tuc-khac ">
+                                        Tin tức kh&#225;c
+                                    </a>
+                                </h3>
+                            </li>
+                    </ul>
+            </div>
+            <div class="box">
+            <h2 class="h2-sb">
+                <a href="javascript:;" title="Tin tức mới nhất">Tin tức mới nhất</a>
+            </h2>
+            <ul class="list-hot-news">
+                    <li>
+                        <a href="/che-pham-hoa-hoc-la-gi-va-nhung-dieu-can-luu-y-khi-su-dung" class="avt"><img src="html/img/icon/nw4.jpg" alt="Chế phẩm h&#243;a học l&#224; g&#236;? V&#224; những điều cần lưu &#253; khi sử dụng"></a>
+
+                        <h3 class="h3-hn">
+                            <a href="/che-pham-hoa-hoc-la-gi-va-nhung-dieu-can-luu-y-khi-su-dung" title="Chế phẩm h&#243;a học l&#224; g&#236;? V&#224; những điều cần lưu &#253; khi sử dụng">Chế phẩm h&#243;a học l&#224; g&#236;? V&#224; những điều cần lưu &#253; khi sử dụng</a>
+                        </h3>
+                    </li>
+                    <li>
+                        <a href="/hoa-hoc-dang-sau-phao-hoa-cam-tay" class="avt"><img src="html/img/icon/nw4.jpg" alt="H&#243;a học đằng sau ph&#225;o hoa cầm tay"></a>
+
+                        <h3 class="h3-hn">
+                            <a href="/hoa-hoc-dang-sau-phao-hoa-cam-tay" title="H&#243;a học đằng sau ph&#225;o hoa cầm tay">H&#243;a học đằng sau ph&#225;o hoa cầm tay</a>
+                        </h3>
+                    </li>
+                    <li>
+                        <a href="/ung-dung-cua-xut-trong-cong-nghiep-xut-chuan-hang-tot" class="avt"><img src="html/img/icon/nw4.jpg" alt="Ứng dụng của x&#250;t trong c&#244;ng nghiệp - x&#250;t chuẩn h&#224;ng tốt"></a>
+
+                        <h3 class="h3-hn">
+                            <a href="/ung-dung-cua-xut-trong-cong-nghiep-xut-chuan-hang-tot" title="Ứng dụng của x&#250;t trong c&#244;ng nghiệp - x&#250;t chuẩn h&#224;ng tốt">Ứng dụng của x&#250;t trong c&#244;ng nghiệp - x&#250;t chuẩn h&#224;ng tốt</a>
+                        </h3>
+                    </li>
+                    <li>
+                        <a href="/nhung-loi-ich-va-moi-nguy-hiem-khi-su-dung-hoa-chat-xut-naoh" class="avt"><img src="html/img/icon/nw4.jpg" alt="Những lợi &#237;ch v&#224; mối nguy hiểm khi sử dụng h&#243;a chất X&#218;T (NaOH)"></a>
+
+                        <h3 class="h3-hn">
+                            <a href="/nhung-loi-ich-va-moi-nguy-hiem-khi-su-dung-hoa-chat-xut-naoh" title="Những lợi &#237;ch v&#224; mối nguy hiểm khi sử dụng h&#243;a chất X&#218;T (NaOH)">Những lợi &#237;ch v&#224; mối nguy hiểm khi sử dụng h&#243;a chất X&#218;T (NaOH)</a>
+                        </h3>
+                    </li>
+                    <li>
+                        <a href="/cung-cap-hoa-chat-sodium-hydroxide-99-xut-vay-trung-quoc" class="avt"><img src="html/img/icon/nw4.jpg" alt="Cung Cấp H&#243;a chất Sodium hydroxide 99% – X&#250;t Vảy Trung Quốc"></a>
+
+                        <h3 class="h3-hn">
+                            <a href="/cung-cap-hoa-chat-sodium-hydroxide-99-xut-vay-trung-quoc" title="Cung Cấp H&#243;a chất Sodium hydroxide 99% – X&#250;t Vảy Trung Quốc">Cung Cấp H&#243;a chất Sodium hydroxide 99% – X&#250;t Vảy Trung Quốc</a>
+                        </h3>
+                    </li>
+            </ul>
+        </div>
+</div>
+        </div>
+    </div>
+
+    
+<footer>
+        <div class="slide-panter">
+            <div class="container">
+                <ul>
+                        <li>
+                            <a target="_blank" title="Đối t&#225;c 6">
+                                <img src="html/img/icon/dt-6.png" title="Đối t&#225;c 6" alt="Đối t&#225;c 6" />
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" title="Đối t&#225;c 1">
+                                <img src="html/img/icon/dt-1.png" title="Đối t&#225;c 1" alt="Đối t&#225;c 1" />
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" title="Đối t&#225;c 2">
+                                <img src="html/img/icon/dt-2.png" title="Đối t&#225;c 2" alt="Đối t&#225;c 2" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.samsung.com/vn/" target="_blank" title="Đối t&#225;c 3">
+                                <img src="html/img/icon/dt-3.png" title="Đối t&#225;c 3" alt="Đối t&#225;c 3" />
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" title="Đối t&#225;c 4">
+                                <img src="html/img/icon/dt-4.png" title="Đối t&#225;c 4" alt="Đối t&#225;c 4" />
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" title="Đối t&#225;c 5">
+                                <img src="html/img/icon/dt-5.png" title="Đối t&#225;c 5" alt="Đối t&#225;c 5" />
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    <div class="footer">
+        <div class="container">
+            <div class="box">
+                <p class="tit">CÔNG TY CỔ PHẦN GEMACHEM VIỆT NAM</p>
+
+<div class="list-ft">
+<p><strong>Trụ sở&nbsp;</strong>: Số 203 Ngô Gia Tự, Phường Đức Giang, Quận Long Biên, Hà Nội, Việt Nam</p>
+
+<p><strong>VPGD&nbsp;</strong>: Số 46 Ngô Quyền, Phường Hàng Bài, Quận Hoàn Kiếm, Hà Nội, Việt Nam</p>
+
+<p><strong>Điện thoại</strong>: <a href="tel:02439233254">(024) 3923 3254</a> - <strong>Fax</strong>: (024) 3938 7667</p>
+
+<p><strong>Di động:&nbsp;</strong><a href="tel:0918764332">0918 764 332</a></p>
+
+<p><strong>Email</strong> : <a href="http://gemachem.jsc@gmail.com">gemachem.jsc@gmail.com</a>&nbsp;/&nbsp;<a href="mailto:contact@gemachem.com.vn">contact@gemachem.com.vn</a></p>
+
+<p><strong>Website:</strong> <a href="gemachem.com.vn/">gemachem.com.vn</a></p>
+</div>
+
+
+            </div>
+                <div class="box">
+                    <p class="tit">Danh mục</p>
+
+                    <ul>
+                            <li><a href="/san-pham">Sản phẩm</a></li>
+                            <li><a href="/dich-vu">Dịch vụ</a></li>
+                            <li><a href="/tin-tuc">Tin tức</a></li>
+                            <li><a href="/lien-he">Li&#234;n hệ</a></li>
+                    </ul>
+
+                </div>
+            <div class="box">
+                <p class="tit">Đăng k&#253; nhận tin</p>
+                <div class="form-footer">
+                    <form id="RegisterEmail">
+                        <input type="text" name="email" id="email" placeholder="Email">
+                        <button class="ic-fly"></button>
+                    </form>
+                </div>
+                <ul class="list-social">
+                    <li>
+                        <a href="https://www.facebook.com/" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/" title="Twiter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/" title="Google Plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bot">
+        <div class="container">
+            <p class="copyright">Copyright &#169; 2019 Bản quyền thuộc Gemachem Việt Nam</p>
+        </div>
+    </div>
+</footer>
+<script>
+    $(document).ready(function () {
+        $("#RegisterEmail").validate({
+            rules: { email: { required: true, email: true, }, title: { required: true } },
+            messages: {  email: { required: "", email: "", }, title: { required: "" } },
+            submitHandler: function (form) {
+                var d = $("#RegisterEmail").serialize();
+                $('#loading').addClass('show');
+                var url = "/Ajax/Home/RegisterReturnEmailProcess";
+                $.post(url, d, function (msg) {
+                    if (msg.Erros == false) {
+                        $.alert({ title: msg.Title, content: msg.msg, theme: 'light', });
+                        setInterval(function () { window.location.reload(); }, 10000);
+                        $('#loading').removeClass('show');
+                    }
+                    else {
+                        $('#loading').removeClass('show');
+                        $.alert({ title: msg.Title, content: msg.msg, theme: 'dark', });
+                    }
+                }, "json");
+            }
+        });
+    });
+</script>
+<style>
+    #RegisterEmail input.error, #RegisterEmail textarea.error {
+        border: 1px solid #ff0000 !important;
+    }
+
+    #RegisterEmail label.error {
+        display: none !important;
+    }
+</style>
+    
+    
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58dcc6b6630aa2ee"></script>
+
+      
+    <script src="html/js/custom.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.main-menu li').removeClass('active');
+        $('.main-menu li a').each(function() {
+            if (this.href.trim() == window.location)
+                $(this).parent('li').addClass('active');
+        });
+        $('.main-menu > li > ul li a').each(function() {
+            if (this.href.trim() == window.location) {
+                $(this).parents('.main-menu li').addClass('active');
+            }
+        });
+    });
+</script>
+    
+</body>
+</html>

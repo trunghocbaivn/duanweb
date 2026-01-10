@@ -1,0 +1,74 @@
+CREATE DATABASE IF NOT EXISTS gemachem_full_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE gemachem_full_db;
+
+-- 1. BẢNG DANH MỤC (Menu đa cấp: Hoá chất -> Hoá chất dệt nhuộm)
+CREATE TABLE danh_muc (
+    id_danh_muc INT PRIMARY KEY AUTO_INCREMENT,
+    ten_danh_muc VARCHAR(255) NOT NULL,
+    id_cha INT DEFAULT NULL,             
+    duong_dan_seo VARCHAR(255) UNIQUE,    
+    mo_ta_seo TEXT,                       
+    thu_tu_hien_thi INT DEFAULT 0,
+    FOREIGN KEY (id_cha) REFERENCES danh_muc(id_danh_muc) ON DELETE CASCADE
+);
+
+-- 2. BẢNG SẢN PHẨM (Chi tiết 100% thông tin như trên web)
+CREATE TABLE san_pham (
+    id_san_pham INT PRIMARY KEY AUTO_INCREMENT,
+    ten_san_pham VARCHAR(255) NOT NULL,
+    id_danh_muc INT,
+    ma_san_pham VARCHAR(50),
+    xuat_xu VARCHAR(100),                
+    quy_cach VARCHAR(100),               
+    ngoai_quan TEXT,                      
+    ham_luong VARCHAR(100),               
+    cong_thuc_hoa_hoc VARCHAR(100),      
+    ung_dung LONGTEXT,                    
+    bao_quan TEXT,                       
+    hinh_anh_dai_dien VARCHAR(255),
+    album_anh JSON,                      
+    ngay_dang TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    luot_xem INT DEFAULT 0,
+    trang_thai TINYINT(1) DEFAULT 1,      
+    FOREIGN KEY (id_danh_muc) REFERENCES danh_muc(id_danh_muc)
+);
+
+-- 3. BẢNG TIN TỨC & KIẾN THỨC NÔNG NGHIỆP
+CREATE TABLE bai_viet (
+    id_bai_viet INT PRIMARY KEY AUTO_INCREMENT,
+    tieu_de VARCHAR(255) NOT NULL,
+    duong_dan_seo VARCHAR(255) UNIQUE,
+    tom_tat TEXT,
+    noi_dung_chi_tiet LONGTEXT,
+    anh_bia VARCHAR(255),
+    id_nguoi_dang INT,
+    ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    loai_tin VARCHAR(50)                  
+);
+
+-- 4. BẢNG LIÊN HỆ & YÊU CẦU BÁO GIÁ
+CREATE TABLE lien_he (
+    id_lien_he INT PRIMARY KEY AUTO_INCREMENT,
+    ho_ten VARCHAR(150) NOT NULL,
+    email VARCHAR(100),
+    so_dien_thoai VARCHAR(20) NOT NULL,
+    dia_chi VARCHAR(255),
+    chu_de VARCHAR(200),                 
+    noi_dung_tin_nhan TEXT,
+    trang_thai_xu_ly TINYINT(1) DEFAULT 0,
+    ngay_gui TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 5. BẢNG CẤU HÌNH WEBSITE (Thông tin chân trang - Footer)
+CREATE TABLE cau_hinh_he_thong (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten_cong_ty VARCHAR(255),
+    dia_chi_tru_so TEXT,
+    hotline VARCHAR(50),
+    email_lien_he VARCHAR(100),
+    link_facebook VARCHAR(255),
+    logo_url VARCHAR(255)
+);
+
+
+

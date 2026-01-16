@@ -1,0 +1,175 @@
+-- 1. TẠO DATABASE
+CREATE DATABASE IF NOT EXISTS gemachem_real_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE gemachem_real_db;
+
+CREATE TABLE admins (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL, 
+    ho_ten VARCHAR(100),
+    email VARCHAR(100),
+    trang_thai TINYINT(1) DEFAULT 1
+);
+
+
+CREATE TABLE danh_muc (
+    id_danh_muc INT PRIMARY KEY AUTO_INCREMENT,
+    ten_danh_muc VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE COMMENT ,
+    id_cha INT DEFAULT 0 COMMENT ,
+    hinh_anh VARCHAR(255) COMMENT,
+    mo_ta TEXT,
+    thu_tu INT DEFAULT 0,
+    hien_thi_trang_chu TINYINT(1) DEFAULT 0,
+    -- Cấu hình SEO
+    meta_title VARCHAR(255),
+    meta_desc VARCHAR(255),
+    meta_keyword VARCHAR(255),
+    trang_thai TINYINT(1) DEFAULT 1
+);
+
+
+CREATE TABLE san_pham (
+    id_san_pham INT PRIMARY KEY AUTO_INCREMENT,
+    ten_san_pham VARCHAR(255) NOT NULL,
+    ten_quoc_te VARCHAR(255) COMMENT ,
+    slug VARCHAR(255) UNIQUE,
+    id_danh_muc INT,
+
+    ma_san_pham VARCHAR(50),
+    cas_number VARCHAR(50) COMMENT 'Mã số CAS quốc tế',
+    cong_thuc_hoa_hoc VARCHAR(100) COMMENT 'Ví dụ: NaOH',
+    ham_luong VARCHAR(100) COMMENT 'Ví dụ: 99%, 45%',
+    xuat_xu VARCHAR(100),
+    quy_cach VARCHAR(100) COMMENT 'Ví dụ: 25kg/bao',
+    ngoai_quan TEXT COMMENT 'Mô tả hình dáng, màu sắc',
+    -- Nội dung chi tiết
+    ung_dung LONGTEXT,
+    bao_quan LONGTEXT,
+    hinh_anh VARCHAR(255),
+    album_anh JSON COMMENT 'Lưu mảng nhiều ảnh',
+    -- Cấu hình hiển thị
+    is_noi_bat TINYINT(1) DEFAULT 0 COMMENT 'Sản phẩm Hot hiện trang chủ',
+    luot_xem INT DEFAULT 0,
+    -- Cấu hình SEO
+    meta_title VARCHAR(255),
+    meta_desc VARCHAR(255),
+    meta_keyword VARCHAR(255),
+    ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    trang_thai TINYINT(1) DEFAULT 1,
+    FOREIGN KEY (id_danh_muc) REFERENCES danh_muc(id_danh_muc) ON DELETE SET NULL
+);
+
+CREATE TABLE bai_viet (
+    id_bai_viet INT PRIMARY KEY AUTO_INCREMENT,
+    tieu_de VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE,
+    mo_ta_ngan TEXT,
+    noi_dung LONGTEXT,
+    hinh_anh VARCHAR(255),
+    loai_tin ENUM('tin-tuc', 'tuyen-dung', 'du-an', 'kien-thuc') DEFAULT 'tin-tuc',
+    is_noi_bat TINYINT(1) DEFAULT 0,
+    ngay_dang DATETIME DEFAULT CURRENT_TIMESTAMP,
+    meta_title VARCHAR(255),
+    meta_desc VARCHAR(255),
+    meta_keyword VARCHAR(255),
+    trang_thai TINYINT(1) DEFAULT 1
+);
+
+CREATE TABLE sliders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tieu_de VARCHAR(255),
+    hinh_anh VARCHAR(255) NOT NULL,
+    lien_ket VARCHAR(255),
+    thu_tu INT DEFAULT 0,
+    trang_thai TINYINT(1) DEFAULT 1
+);
+
+CREATE TABLE doi_tac (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten_doi_tac VARCHAR(255),
+    logo VARCHAR(255) NOT NULL,
+    website VARCHAR(255),
+    thu_tu INT DEFAULT 0
+);
+
+CREATE TABLE lien_he (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ho_ten VARCHAR(100),
+    email VARCHAR(100),
+    so_dien_thoai VARCHAR(20),
+    tieu_de VARCHAR(200),
+    noi_dung TEXT,
+    ngay_gui DATETIME DEFAULT CURRENT_TIMESTAMP,
+    trang_thai_xu_ly TINYINT(1) DEFAULT 0 COMMENT '0: Mới, 1: Đã xem, 2: Đã liên hệ'
+);
+
+CREATE TABLE cau_hinh (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten_cong_ty VARCHAR(255),
+    dia_chi_vp TEXT,
+    dia_chi_kho TEXT,
+    hotline VARCHAR(50),
+    zalo VARCHAR(50),
+    email VARCHAR(100),
+    map_iframe TEXT,
+    facebook_url VARCHAR(255),
+    copyright TEXT,
+    code_header TEXT COMMENT 'Chứa Google Analytics, Pixel...',
+    code_footer TEXT COMMENT 'Chứa script chat...'
+);
+
+INSERT INTO admins (username, password, ho_ten) VALUES 
+('admin', 'e10adc3949ba59abbe56e057f20f883e', 'Quản Trị Viên'); -- Pass: 123456
+
+INSERT INTO danh_muc (id_danh_muc, ten_danh_muc, slug, id_cha, thu_tu) VALUES 
+(1, 'Hóa chất công nghiệp', 'hoa-chat-cong-nghiep', 0, 1),
+(2, 'Hóa chất xử lý nước', 'hoa-chat-xu-ly-nuoc', 0, 2),
+(3, 'Dung môi công nghiệp', 'dung-moi-cong-nghiep', 0, 3),
+(4, 'Hóa chất xi mạ', 'hoa-chat-xi-ma', 0, 4),
+(5, 'Hương liệu - Phụ gia thực phẩm', 'huong-lieu-phu-gia', 0, 5),
+(6, 'Axit', 'axit', 1, 1), -- Con của Hóa chất CN
+(7, 'Muối Sunfat', 'muoi-sunfat', 1, 2); -- Con của Hóa chất CN
+
+INSERT INTO san_pham (ten_san_pham, ten_quoc_te, slug, id_danh_muc, ma_san_pham, cas_number, cong_thuc_hoa_hoc, ham_luong, xuat_xu, quy_cach, ngoai_quan, ung_dung, is_noi_bat) VALUES 
+(
+    'Axit Sulfuric 98%', 'Sulphuric Acid', 'axit-sulfuric-h2so4', 
+    6, 'H2SO4', '7664-93-9', 'H2SO4', '98%', 'Việt Nam', '30kg/can, xe bồn', 
+    'Chất lỏng sánh, không màu hoặc hơi ngả vàng', 
+    'Dùng trong xử lý nước thải, sản xuất phèn, tẩy rỉ thép...', 
+    1
+),
+(
+    'Xút vảy NaOH 99%', 'Caustic Soda Flakes', 'xut-vay-naoh-99', 
+    1, 'NAOH-CN', '1310-73-2', 'NaOH', '99% min', 'Trung Quốc', '25kg/bao', 
+    'Dạng vảy màu trắng, hút ẩm mạnh', 
+    'Sản xuất giấy, xà phòng, xử lý nước, dệt nhuộm...', 
+    1
+),
+(
+    'PAC Vàng chanh', 'Polyaluminium Chloride', 'pac-vang-chanh', 
+    2, 'PAC-30', '1327-41-9', '[Al2(OH)nCl6-n]m', '30-31%', 'Trung Quốc', '25kg/bao', 
+    'Dạng bột màu vàng chanh', 
+    'Trợ lắng keo tụ trong xử lý nước cấp và nước thải.', 
+    0
+),
+(
+    'Methanol Công Nghiệp', 'Methyl Alcohol', 'dung-moi-methanol', 
+    3, 'CH3OH', '67-56-1', 'CH3OH', '99.8%', 'Indo/Malaysia', '163kg/phuy', 
+    'Chất lỏng trong suốt, bay hơi nhanh, dễ cháy', 
+    'Làm dung môi pha sơn, mực in, nhiên liệu...', 
+    0
+);
+
+INSERT INTO sliders (tieu_de, hinh_anh, thu_tu) VALUES 
+('Cung cấp hóa chất công nghiệp uy tín', 'banner-1.jpg', 1),
+('Giải pháp xử lý nước toàn diện', 'banner-2.jpg', 2);
+
+INSERT INTO cau_hinh (ten_cong_ty, dia_chi_vp, hotline, email, facebook_url) VALUES 
+(
+    'CÔNG TY TNHH GEMACHEM VIỆT NAM', 
+    'Tầng 5, Tòa nhà A, Số 123 Đường B, Quận C, TP.HCM', 
+    '0909.123.456', 
+    'sales@gemachem.com.vn', 
+    'https://www.facebook.com/gemachem'
+);
